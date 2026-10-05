@@ -184,7 +184,6 @@ Cursor movement inside an unchanged focus does not force that full redraw.
 This is a deliberate simplicity tradeoff; screen redraw cost still depends on
 your terminal, visible windows, and other plugins. Performance was not benchmarked.
 
-Native text-object selection is interactive; the isolated scope module avoids those side effects. 
 To extend sentence rules, edit `scope.prepare` and add examples to `tests/unit.lua`.
 
 Disable with `:ProseFocus disable`. To remove permanently, remove the setup call
