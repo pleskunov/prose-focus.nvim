@@ -115,7 +115,7 @@ dimmed foreground = foreground + dim * (background - foreground)
 
 This is ordinary RGB-channel interpolation. It supplies no fixed color palette,
 changes no existing highlight group, and leaves the focused text untouched.
-Outside the focus, syntax foregrounds/styles are intentionally replaced with a
+Outside the focus, syntax foregrounds/styles are replaced with a
 uniform dim foreground. The default `dim = 0.60` works in both light and dark
 themes. Choosing `1` may make text effectively invisible.
 
@@ -156,7 +156,7 @@ not exact implementations of `is`/`ip`: nroff macros and `'cpoptions'` are ignor
 Abbreviations such as `Dr. Smith` split at the period; decimal points such as
 `3.14` do not. Curly closing quotes, CJK punctuation, Markdown document structure,
 code fences, and linguistic abbreviation dictionaries are not parsed. Unicode
-text is preserved and ranges use byte positions, as Neovim requires.
+text is preserved and ranges use byte positions as Neovim requires.
 
 ## Implementation and performance
 
@@ -182,7 +182,7 @@ Changes to the focus, content, or enabled state trigger `redraw!`. This explicit
 invalidation is needed to repaint rows containing the old ephemeral highlight.
 Cursor movement inside an unchanged focus does not force that full redraw.
 This is a deliberate simplicity tradeoff; screen redraw cost still depends on
-your terminal, visible windows, and other plugins. Performance is not benchmarked.
+your terminal, visible windows, and other plugins. Performance was not benchmarked.
 
 Native text-object selection is interactive; the isolated scope module avoids those side effects. 
 To extend sentence rules, edit `scope.prepare` and add examples to `tests/unit.lua`.
